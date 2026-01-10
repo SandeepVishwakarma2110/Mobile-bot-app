@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -22,7 +23,7 @@ export default function Login() {
         setMessage("");
         setUsername("");
         setPassword("");
-        navigate("/welcome");
+        navigate("/dashboard");
       } else {
         setMessage(data.message || "Login failed");
       }
@@ -44,10 +45,8 @@ export default function Login() {
         >
           {/* Logo */}
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-black font-bold">
-              💬
-            </div>
-            <span className="text-lg font-semibold">CommuniLink</span>
+            <img src={logo} alt="Voxa Logo" className="w-12 h-12" />
+            <span className="text-lg font-semibold">Voxa</span>
           </div>
 
           {/* Heading */}

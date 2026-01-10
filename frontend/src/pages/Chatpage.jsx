@@ -2,6 +2,7 @@ import { useState, useRef , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { useCall } from "../context/CallContext";
 import { startWebCall } from "../services/callService";
+import { MicrophoneIcon } from "@heroicons/react/24/solid";
 const synth = window.speechSynthesis;
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -109,12 +110,15 @@ useEffect(() => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0F14] text-white flex flex-col">
+
+    // <div className="min-h-screen bg-[#0B0F14] text-white flex flex-col">
+    <div className="h-screen overflow-hidden bg-[#0B0F14] text-white flex flex-col">
       {/* Top Call Bar */}
       
 
       {/* Header */}
-    <div className="px-4 py-3 border-b border-white/10">
+    {/* <div className="px-4 py-3 border-b border-white/10"> */}
+    <div className="px-4 py-3 border-b border-white/10 sticky top-0 z-20 bg-[#0B0F14]">
   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
 
     {/* LEFT: USER INFO */}
@@ -188,6 +192,15 @@ useEffect(() => {
 
       {/* Chat Area */}
       <div className="flex-1 px-6 py-4 overflow-y-auto space-y-4">
+        {/* Bot Info Message */}
+        <div className="mb-4">
+          <div className="bg-[#1a202c] border-l-4 border-orange-400 p-4 rounded shadow text-white/90">
+            <div className="font-semibold text-orange-300 mb-1">Welcome to Ramayana AI Assistant!</div>
+            <div className="text-sm">
+              This is a Ramayan bot. You can ask any questions about the Ramayana, its characters, stories, morals, and more. Type or speak your query below to get started!
+            </div>
+          </div>
+        </div>
         {chat.map((msg, i) => (
           <div
             key={i}
@@ -272,7 +285,7 @@ useEffect(() => {
                     : "bg-gradient-to-r from-orange-400 to-orange-700 hover:scale-105 shadow-lg shadow-orange-500/40"
                 }`}
             >
-              🎤
+               <MicrophoneIcon className="w-6 h-6" />
             </button>
           </div>
 

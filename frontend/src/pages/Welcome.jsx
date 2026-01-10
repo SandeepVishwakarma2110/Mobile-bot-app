@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 export default function Welcome() {
   const navigate = useNavigate();
@@ -13,14 +14,12 @@ export default function Welcome() {
         <div className="bg-[#121820] border border-white/10 rounded-3xl px-8 py-14 shadow-2xl">
           {/* App Icon */}
           <div className="flex justify-center mb-6">
-            <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg">
-              <span className="text-4xl">💬</span>
-            </div>
+            <img src={logo} alt="Voxa Logo" className="w-12 h-12" />
           </div>
 
           {/* Title */}
           <h1 className="text-3xl font-bold text-blue-400 mb-2">
-            CommuniLink
+            Voxa
           </h1>
 
           {/* Tagline */}
@@ -30,7 +29,7 @@ export default function Welcome() {
 
           {/* CTA Button */}
           <button
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate("/login")}
             className="px-10 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-green-400 text-black font-semibold hover:opacity-90 transition"
           >
             Get Started Now

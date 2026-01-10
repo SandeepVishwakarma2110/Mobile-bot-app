@@ -1,17 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
+
 export default function IntroPage() {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-[#0B0F14] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#0B0F14] text-white overflow-x-hidden " 
+    style={{
+        height: "100vh",
+        overflow: "auto",
+        overscrollBehavior: "contain",
+      }}>
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 md:px-16 py-5">
         <div className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
-            💬
-          </div>
-          <span className="font-semibold text-lg">CommuniLink</span>
+          <img src={logo} alt="Voxa Logo" className="w-12 h-12" />
+          <span className="font-semibold text-lg">Voxa</span>
         </div>
 
         <div className="hidden md:flex gap-8 text-sm text-gray-300">
@@ -44,10 +49,10 @@ export default function IntroPage() {
           </p>
 
           <div className="flex flex-wrap gap-4 mt-8">
-            <button onClick={() => navigate("/login")} className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-green-400 text-black font-medium hover:opacity-90 transition">
+            <button onClick={() => navigate("/welcome")} className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-green-400 text-black font-medium hover:opacity-90 transition">
               Get Started Now
             </button>
-            <button onClick={() => navigate("/login")} className="px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 font-medium hover:opacity-90 transition">
+            <button onClick={() => navigate("/welcome")} className="px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 font-medium hover:opacity-90 transition">
               Request Demo
             </button>
           </div>
