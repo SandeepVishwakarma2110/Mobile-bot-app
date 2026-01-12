@@ -13,12 +13,12 @@ export default function Welcome() {
         {/* Card */}
         <div className="bg-[#121820] border border-white/10 rounded-3xl px-8 py-14 shadow-2xl">
           {/* App Icon */}
-          <div className="flex justify-center mb-6">
-            <img src={logo} alt="Voxa Logo" className="w-12 h-12" />
+          <div className="flex justify-center mb-3">
+            <img src={logo} alt="Voxa Logo" className="w-20 h-20" />
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl font-bold text-blue-400 mb-2">
+          <h1 className="text-4xl font-bold text-blue-400 mb-2 ">
             Voxa
           </h1>
 

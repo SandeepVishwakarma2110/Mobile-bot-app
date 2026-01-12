@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageSquare, Phone, Zap, Settings, Mic, LayoutDashboard } from "lucide-react";
 import { useEffect } from "react";
 import logo from "../assets/logo.png";
 export default function Dashboard() {
 
+  const cardBase =
+    "h-44 rounded-2xl bg-[#0f141c] border border-white/10 flex flex-col items-center justify-center gap-3 cursor-pointer transition hover:border-white/20 hover:scale-[1.02]";
+
+  const iconBase =
+    "w-14 h-14 rounded-3xl flex items-center justify-center shadow-lg";
   const navigate = useNavigate();
 
 
@@ -33,7 +38,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-[#0b0f14] text-white px-6 py-5 "
-    style={{
+      style={{
         height: "100vh",
         overflow: "auto",
         overscrollBehavior: "contain",
@@ -62,7 +67,7 @@ export default function Dashboard() {
 
 
       {/* FEATURE CARDS */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10 align-items: center">
+      {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10 align-items: center">
         <div onClick={() => navigate("/chatselection")} className="rounded-2xl bg-[#121821] border border-cyan-500 h-44 flex flex-col items-center justify-center hover:border-cyan-500/30 transition">
           <MessageCircle className="text-cyan-500 " />
           <p
@@ -89,10 +94,67 @@ export default function Dashboard() {
           <div className="text-3xl mb-3">⚙️</div>
           <p className="text-sm text-gray-300">Settings</p>
         </div>
-      </div>
+      </div> */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
 
+        {/* Chats */}
+        <div onClick={() => navigate("/chatselection")} className={cardBase}>
+          <div className={`${iconBase} bg-gradient-to-br from-green-400 to-emerald-700`}>
+            <MessageSquare className="text-black w-7 h-7" />
+          </div>
+          <p className="text-sm text-gray-300">Chats</p>
+        </div>
+
+
+        <div onClick={() => navigate("/comingsoon")} className="h-44 rounded-2xl bg-[#0f141c] border border-white/10
+                flex flex-col items-center justify-center gap-3
+                hover:border-white/20 transition cursor-pointer">
+          <div className="w-14 h-14 rounded-3xl bg-gradient-to-br from-purple-600 to-blue-500
+                  flex items-center justify-center shadow-lg">
+            <Mic className="w-7 h-7 text-black" />
+          </div>
+          <p className="text-sm text-gray-300">Voice Chat</p>
+        </div>
+
+        {/* Calls */}
+        <div onClick={() => navigate("/comingsoon")} className={cardBase}>
+          <div className={`${iconBase}  bg-gradient-to-br from-green-400 to-blue-700`}>
+            <Phone className="text-black w-7 h-7" />
+          </div>
+          <p className="text-sm text-gray-300">Calls</p>
+        </div>
+
+        {/* Hybrid AI */}
+        <div onClick={() => navigate("/comingsoon")} className={cardBase}>
+          <div className={`${iconBase} bg-gradient-to-br from-purple-600 to-green-500`}>
+            <Zap className=" text-black w-7 h-7" />
+          </div>
+          <p className="text-sm text-gray-300">Hybrid AI</p>
+        </div>
+
+        {/* Settings */}
+        <div onClick={() => navigate("/comingsoon")} className={cardBase}>
+          <div className={`${iconBase} bg-gradient-to-br from-indigo-400 to-green-600`}>
+            <Settings className="text-black w-7 h-7" />
+          </div>
+          <p className="text-sm text-gray-300">Settings</p>
+        </div>
+
+
+        <div onClick={() => navigate("/comingsoon")} className="h-44 rounded-2xl bg-[#0f141c] border border-white/10
+                flex flex-col items-center justify-center gap-3
+                hover:border-white/20 transition cursor-pointer">
+          <div className="w-14 h-14 rounded-3xl bg-gradient-to-br from-cyan-500 to-purple-500
+                  flex items-center justify-center shadow-lg">
+            <LayoutDashboard className="w-7 h-7 text-black" />
+          </div>
+          <p className="text-sm text-gray-300">Dashboard</p>
+        </div>
+
+      </div>
+   
       {/* RECENT ACTIVITY */}
-      {/* <div>
+      <div>
         <p className="text-sm text-gray-400 mb-4">Recent Activity</p>
 
         <div className="space-y-3">
@@ -162,7 +224,7 @@ export default function Dashboard() {
           </div>
 
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
